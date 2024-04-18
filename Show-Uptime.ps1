@@ -14,13 +14,18 @@
    04/16/2024
 
 .EXAMPLE
-   Show-Uptime
+   Show-Uptime -ComputerName localhost
    Last Boot Time: Monday 04/15/2024 08:30 AM
    System Uptime: 01 days, 03 hours, 30 minutes
 #>
 
 # Function to display the system uptime
 Function Show-Uptime {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$computerName
+    )
+   
     # Retrieve the last boot time using the Win32_OperatingSystem WMI class
     $lastBootTime = (Get-CimInstance -ClassName Win32_OperatingSystem).LastBootUpTime
  
