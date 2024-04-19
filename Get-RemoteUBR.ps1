@@ -36,7 +36,7 @@ function Get-RemoteUBR {
         (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name UBR).UBR
     }
 
-    Write-Host "The Windows Revision value on $ComputerName is $ubrValue" -ForegroundColor Yellow
+    Write-Host "The Windows Revision value on $ComputerName is $ubrValue" -ForegroundColor Green
 
     # Check if the WinRM service is running on the remote computer, stop it if it is
     $winrmService = Get-Service -Name WinRM -ComputerName $computerName
